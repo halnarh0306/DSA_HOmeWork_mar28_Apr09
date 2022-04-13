@@ -1,0 +1,87 @@
+"1. Find the smallest missing element from a sorted array
+
+----->>>
+package Mar29;
+//"1. Find the smallest missing element from a sorted array
+
+public class missing_number1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int[] arr= {0,1,2,3,4,5,6,7,8,9};
+		
+		int missNumber=findMissingnumber(arr);
+		System.out.println(missNumber);
+
+	}
+	public static int findMissingnumber(int arr[])
+	{
+	
+	    int start=0;
+	    int end=arr.length-1;
+	    while(start<=end)
+	    {
+	    	int mid=start+(end-start)/2;
+	    	
+	      if(mid==0)
+	         return mid;
+	      
+	      if(arr[mid]!=mid && arr[mid-1]==mid-1)
+	    	   return mid;
+	      
+	      else if(arr[mid]==mid)
+	           start=mid+1;
+	      
+	      else
+	    	  end=mid-1;
+	      
+	    }
+	    return arr.length;
+		
+	}
+
+}
+
+2. Find the missing term in a sequence in logarithmic time"
+---->>>
+  package Mar29;
+//2. Find the missing term in a sequence in logarithmic time"
+public class FindMisssingNumberLogarithemickOrder {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int[] arr= {0,1,2,3,4,5,7,8,9};
+	     
+		int missNumber=findMissingterm(arr);
+		System.out.println(missNumber);
+
+	}
+	public static int findMissingterm(int[] arr)
+	{
+	       int	start=0;
+	       int end=arr.length-1;
+	       
+	       while(start<=end)
+	       {
+	    	   int mid=start+(end-start)/2;
+	    	   
+	    	   if(mid==0 )
+	    		   return mid;
+	    	   
+	    	   else if(arr[mid]!=mid && arr[mid-1]==mid-1)
+	    		   return mid;
+	    	   
+	    	   else if(arr[mid]==mid)
+	    		   start=mid+1;
+	    	    
+	    	   else
+	    		   end=mid-1;
+	    	   
+	       }
+	       return arr.length;
+	
+	}
+
+}

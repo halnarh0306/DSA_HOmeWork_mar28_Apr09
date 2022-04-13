@@ -1,0 +1,107 @@
+"Write a program to print the fibonacci numbers recursively till n
+Output -> 0,1,1,2,3,5
+
+--->>> package Apr_09;
+
+import java.util.*;
+
+//  "Write a program to print the fibonacci numbers recursively till n
+//Output -> 0,1,1,2,3,5
+public class RecursionFirst {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int a = 0, b = 1;
+		System.out.print(a + " ");
+		System.out.print(b + " ");
+		printFibonacci(n, 0, 1, 0, 2);
+
+	}
+
+	private static void printFibonacci(int n, int a, int b, int next, int i) {
+		// TODO Auto-generated method stub
+
+		if (i == n) {
+
+			return;
+		}
+
+		next = a + b;
+		a = b;
+		b = next;
+		System.out.print(next + " ");
+		printFibonacci(n, a, b, next, i + 1);
+
+	}
+
+}
+
+Write a program to find the nth fiboanncii number. Ex - n -> 4
+Output - 2
+---->> ans
+  package Apr_09;
+
+import java.util.Scanner;
+
+public class RecursionFibonacciSeries {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+
+		printFibonacci(n, 0, 1, 0, 1);
+
+	}
+
+	private static void printFibonacci(int n, int a, int b, int next, int i) {
+		// TODO Auto-generated method stub
+
+		if (i == n) {
+			System.out.print(next + " ");
+			return;
+		}
+
+		next = a + b;
+		a = b;
+		b = next;
+
+		printFibonacci(n, a, b, next, i + 1);
+
+	}
+
+}
+
+             
+
+            
+write a recursive function to compute the sum of a array  eg: input: [1,2,5,5,10] => o/p:  23"
+
+---->>> 
+ ans package Apr_09;
+
+public class SumResursion {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[] arr = { 1, 2, 4, 5, 6, 7 };
+
+		int sum = sumArray(arr, 0, 0);
+		System.out.print(sum);
+
+	}
+
+	private static int sumArray(int[] arr, int i, int sum) {
+		// TODO Auto-generated method stub
+
+		if (i == arr.length) {
+			return sum;
+		}
+		sum += arr[i];
+		return sumArray(arr, i + 1, sum);
+
+	}
+
+}

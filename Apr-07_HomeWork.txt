@@ -1,0 +1,231 @@
+"""1. Print the matrix in the spiral form
+a[][] =  
+{1,2,3,4}
+{5,6,7,8},
+{9,10,11,12},
+{13,14,15,16}
+
+Output- 
+
+1 2 3 4 8 12 16 15 14 13 9 5 6 7 11 10
+
+--->>
+Ans--;
+        package Apr07_Class;
+
+public class SpiralMatrix {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[][] arr = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 }, { 13, 14, 15, 16 } };
+
+		spiral(arr);
+
+	}
+
+	public static void spiral(int[][] arr) {
+		int row = arr.length;
+		int column = arr[0].length;
+
+		int top = 0;
+		int bottom = row - 1;
+
+		int left = 0;
+		int right = column - 1;
+		int dir = 1;
+		while (left <= right && top <= bottom) {
+			if (dir == 1) {
+				for (int i = left; i <= right; i++)
+					System.out.print(arr[top][i] + " ");
+
+				top++;
+				dir = 2;
+			} else if (dir == 2) {
+				for (int i = top; i <= bottom; i++)
+					System.out.print(arr[i][right] + " ");
+
+				right--;
+				dir = 3;
+			} else if (dir == 3) {
+				for (int i = right; i >= left; i--)
+					System.out.print(arr[bottom][i] + " ");
+
+				bottom--;
+				dir = 4;
+			} else if (dir == 4) {
+				for (int i = bottom; i >= top; i--)
+					System.out.print(arr[i][left] + " ");
+
+				left++;
+				dir = 1;
+
+			}
+
+		}
+	}
+
+}
+
+              
+
+2. Given a boolean matrix mat[M][N] of size M X N, 
+modify it such that if a matrix cell mat[i][j] is 1 (or true) then make all the cells of ith row and jth column as 1.
+
+Example 1
+The matrix
+1 0
+0 0
+should be changed to following
+1 1
+1 0
+
+-->>>>  ans       package Apr07_Class;
+
+import java.util.Arrays;
+
+public class makeOne_row_column_02 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int[][] arr = { { 1, 0 }, { 0, 0 } };
+
+		makeOne(arr);
+
+	}
+
+	public static void makeOne(int[][] arr) {
+		int row = -1;
+		int column = -1;
+
+		for (int i = 0; i < arr.length; i++) {
+			for (int j = 0; j < arr[i].length; j++) {
+				if (arr[i][j] == 1) {
+					row = i;
+					column = j;
+				}
+			}
+
+		}
+		for (int i = 0; i < arr.length; i++)
+			arr[i][column] = 1;
+
+		for (int j = 0; j < arr.length; j++)
+			arr[row][j] = 1;
+
+		System.out.println(Arrays.deepToString(arr));
+
+	}
+
+}
+
+         
+Example 2
+The matrix
+0 0 0
+0 0 1
+should be changed to following
+0 0 1
+1 1 1
+
+  ____>>>>>  ans     package Apr07_Class;
+
+import java.util.Arrays;
+
+public class makeOne_row_column_02 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int[][] arr = { { 0, 0,0},
+				       { 0, 0,1 } };
+
+		makeOne(arr);
+
+	}
+
+	public static void makeOne(int[][] arr) {
+		int row = -1;
+		int column = -1;
+
+		for (int i = 0; i < arr.length; i++) {
+			for (int j = 0; j < arr[i].length; j++) {
+				if (arr[i][j] == 1) {
+					row = i;
+					column = j;
+				}
+			}
+
+		}
+		for (int i = 0; i < arr.length; i++)
+			arr[i][column] = 1;
+
+		for (int j = 0; j < arr.length; j++)
+			arr[row][j] = 1;
+
+		System.out.println(Arrays.deepToString(arr));
+
+	}
+
+}
+
+
+Example 3
+The matrix
+1 0 0 1
+0 0 1 0
+0 0 0 0
+should be changed to following
+1 1 1 1
+1 1 1 1
+1 0 1 1
+ """
+---->>>
+             package Apr07_Class;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class makeOne_row_column_02 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int[][] arr = { { 1, 0, 0, 1 },
+				       { 0, 0, 1, 0 }, 
+				       { 0, 0, 0, 0 } };
+
+		makeOne(arr);
+
+	}
+
+	public static void makeOne(int[][] arr) {
+
+		List<Integer> rowlist = new ArrayList<>();
+		List<Integer> collist = new ArrayList<>();
+
+		for (int i = 0; i < arr.length; i++) {
+			for (int j = 0; j < arr[i].length; j++) {
+				if (arr[i][j] == 1) {
+					rowlist.add(i);
+					collist.add(j);
+				}
+			}
+
+		}
+		for (int m = 0; m < collist.size(); m++) {
+			for (int i = 0; i < arr.length; i++)
+				arr[i][collist.get(m)] = 1;
+		}
+
+		for (int k = 0; k < rowlist.size(); k++) {
+			for (int j = 0; j < arr.length; j++)
+				arr[rowlist.get(k)][j] = 1;
+		}
+
+		System.out.println(Arrays.deepToString(arr));
+
+	}
+
+}

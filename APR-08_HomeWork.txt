@@ -1,0 +1,110 @@
+"Print odd numbers till 31
+
+--->>>package Apr_08;
+
+public class Recursion {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int i=31;
+		printOdd(i);
+
+	}
+
+	private static void printOdd(int i) {
+		// TODO Auto-generated method stub
+		
+		if(i==1)
+		{
+			System.out.print(i+" ");
+			return;
+		}
+		printOdd(i-2);
+		System.out.print(i+" ");
+		
+	}
+
+}
+
+Find the factorial of a number
+---->>>> ans 
+          package Apr_08;
+
+public class factorial_02 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int n = 5;
+		int fact = factorial(n);
+		System.out.println(fact);
+
+	}
+
+	private static int factorial(int n) {
+		// TODO Auto-generated method stub
+		if (n == 1)
+			return 1;
+
+		return n * factorial(n - 1);
+
+	}
+
+}
+
+Find the nth power of any given number
+
+
+--->>>>ANS
+          package Apr_08;
+
+public class power_ofNUM_03 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int n = 3;
+		int p = 5;
+		int num = power(n, p);
+		System.out.println(num);
+
+	}
+
+	private static int power(int n, int p) {
+		// TODO Auto-generated method stub
+		if (n == 1)
+			return p;
+
+		return p * power(n - 1, p);
+	}
+
+}
+
+
+Print the reverse of a string"
+
+
+---->>>
+ ans          package Apr_08;
+
+public class ReverseString_04 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String a = "HelloWord";
+		int n = 0;
+		reverse(a, n);
+	}
+
+	private static void reverse(String a, int i) {
+		// TODO Auto-generated method stub
+
+		if (i == a.length())
+			return;
+
+		reverse(a, i + 1);
+		System.out.print(a.charAt(i));
+
+	}
+
+}
